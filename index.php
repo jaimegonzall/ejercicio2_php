@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario AJAX y PHP</title>
+
+    <style>
+        #msg{ color: red;}
+        .error-input{border: 1px solid red;}
+    </style>
+
 </head>
 <body>
 
@@ -12,7 +18,8 @@
 
 
 
-    <form action="controller.php" method="post" name="Formulario" id="formjson">
+    <!-- <form action="controller.php" method="post" name="Formulario" id="formjson"> -->
+    <form action="" method="post" name="Formulario" id="formjson">
 
         <fieldset>
             <legend>Datos personales</legend>
@@ -35,13 +42,13 @@
             <input type="radio" id="mujer" name="gender" value="mujer">
             <label for="mujer">Mujer</label><br>
             <input type="radio" id="otros" name="gender" value="otros">
-            <label for="otros">Otros</label><br>
+            <label for="otros">Otro</label><br>
         </fieldset>
 
         <fieldset>
             <legend>Otros datos</legend>
             <label for="areaTexto">Campo de texto:</label>
-            <textarea name="areaTexto" id="" cols="100" rows="6" placeholder="Text Area">
+            <textarea name="areaTexto" id="areaTexto" cols="100" rows="6" placeholder="Text Area">
             </textarea><br>
             <label for="localidad">Seleccione su localidad:</label>
             <select name="localidad" id="localidad">
@@ -56,9 +63,9 @@
         </fieldset>
 
         <div id="msg"></div>
-        <button id="btnEnviar" type="submit">
-            Enviar
-        </button>
+        <button id="btnEnviar" type="button" onclick="formValidate()">Enviar</button>
+        <!-- <button id="btnEnviar" type="submit">Enviar</button>
+        <input type="submit" value="Enviar"> -->
 
     </form>
 
@@ -66,5 +73,7 @@
 
 
 <script src="script.js"></script>
+
+
 </body>
 </html>
