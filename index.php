@@ -20,7 +20,7 @@
             <label for="name">Nombre:</label>
             <input type="text" id="name" name="name" autofocus>
             <label for="lastName">Apellidos:</label>
-            <input type="text" id="lastName" name="lastName" autocomplete="off" placeholder="Apellido">
+            <input type="text" id="lastName" name="lastName" autocomplete="off" placeholder="al menos uno">
             <label for="age">Edad:</label>
             <input type="number" name="age" id="age">
             <label for="dni">DNI:</label>

@@ -6,7 +6,7 @@ input{display:flex;}
 
 input[type="radio" i] { display:unset;}
 
-::placeholder {color: blue;}
+::placeholder {color: silver; font-style: italic;}
 
 textarea {
     font-family: inherit;
