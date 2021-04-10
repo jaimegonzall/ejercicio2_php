@@ -5,11 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario AJAX y PHP</title>
-
-    <style>
-        #msg{ color: red;}
-        .error-input{border: 1px solid red;}
-    </style>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -26,7 +22,7 @@
             <label for="name">Nombre:</label>
             <input type="text" id="name" name="name" autofocus>
             <label for="lastName">Apellidos:</label>
-            <input type="text" id="lastName" name="lastName" autocomplete="off">
+            <input type="text" id="lastName" name="lastName" autocomplete="off" placeholder="Apellido">
             <label for="age">Edad:</label>
             <input type="number" name="age" id="age">
             <label for="dni">DNI:</label>
@@ -47,11 +43,12 @@
 
         <fieldset>
             <legend>Otros datos</legend>
-            <label for="areaTexto">Campo de texto:</label>
-            <textarea name="areaTexto" id="areaTexto" cols="100" rows="6" placeholder="Text Area">
+            <label for="areaTexto">Campo de texto:</label><br>
+            <textarea name="areaTexto" id="areaTexto" cols="70" rows="6">
             </textarea><br>
-            <label for="localidad">Seleccione su localidad:</label>
-            <select name="localidad" id="localidad">
+            <label for="localidad">Seleccione su localidad:</label><br>
+            <select name="localidad" id="localidad" size="4">
+              <option value=""></option>
               <option value="Oviedo">Oviedo</option>
               <option value="Gijón">Gijón</option>
               <option value="Avilés">Avilés</option>
@@ -59,6 +56,13 @@
               <option value="Llanera">Llanera</option>
               <option value="Mieres">Mieres</option>
               <option value="Langreo">Langreo</option>
+              <option value="Villaviciosa">Villaviciosa</option>
+              <option value="Navia">Navia</option>
+              <option value="Parres">Parres</option>
+              <option value="Gozón">Gozón</option>
+              <option value="Piloña">Piloña</option>
+              <option value="Ribadesella">Ribadesella</option>
+              <option value="Cangas de Onís">Cangas de Onís</option>
             </select>
         </fieldset>
 
@@ -68,8 +72,6 @@
         <input type="submit" value="Enviar"> -->
 
     </form>
-
-
 
 
 <script src="script.js"></script>

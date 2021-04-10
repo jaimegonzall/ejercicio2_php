@@ -1,0 +1,8 @@
+#msg{ color: red; }
+.error-input{border: 1px solid red;}
+
+input{display:flex;}
+
+input[type="radio" i] { display:unset;}
+
+::placeholder {color: blue;}

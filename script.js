@@ -17,10 +17,10 @@ function formValidate(){
     let lastName = document.querySelector("#lastName").value;
     let age = document.querySelector("#age").value;
     let dni = document.querySelector("#dni").value;
-/*    
     let correo = document.querySelector("#correo").value;
-    let areaTexto = document.querySelector("#areaTexto").value;
     let localidad = document.querySelector("#localidad").value;
+/*    
+    let areaTexto = document.querySelector("#areaTexto").value;
     
     */
 
@@ -41,16 +41,63 @@ function formValidate(){
       errorMsg.innerHTML += "Indique su edad. </br>";
       hasError = true;
     }
+
     
-    if (dni == "" || dni == undefined){
-      errorMsg.innerHTML += "Indique su DNI. </br>";
+    function nif(dni) {
+      var numero
+      var letr
+      var letra
+      var expresion_regular_dni
+     
+      expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
+     
+      if(expresion_regular_dni.test (dni) == true){
+         numero = dni.substr(0,dni.length-1);
+         letr = dni.substr(dni.length-1,1);
+         numero = numero % 23;
+         letra='TRWAGMYFPDXBNJZSQVHLCKET';
+         letra=letra.substring(numero,numero+1);
+        if (letra!=letr.toUpperCase()) {
+           alert('Dni erroneo, la letra del NIF no se corresponde');
+           hasError = true;
+         }else{
+           console.log('Dni correcto');
+         }
+      }else{
+         alert('Dni erroneo, formato no válido');
+         hasError = true;
+       }
+    }
+    nif(dni);
+
+    if (correo == "" || correo == undefined){
+      errorMsg.innerHTML += "Rellene el campo email </br>";
       hasError = true;
     }
 
     if(!document.querySelector('input[name="gender"]:checked')) {
       errorMsg.innerHTML += "Debe indicar un género </br>";
       hasError = true;
+    }
+
+    if (localidad == "" || localidad == undefined){
+      errorMsg.innerHTML += "Seleccione una localidad </br>";
+      hasError = true;
+    };
+
+
+
+/*     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(correo)){
+       alert("La dirección de email " + correo + " es correcta.");
+      } else {
+       alert("La dirección de email es incorrecta.");
       }
+    } */
+
+
+
+
+
 
     
 
