@@ -13,9 +13,7 @@
 <h1>Ejercicio de formulario</h1>
 
 
-
-    <!-- <form action="controller.php" method="post" name="Formulario" id="formjson"> -->
-    <form action="" method="post" name="Formulario" id="formjson">
+    <form action="controller.php" method="post" name="formjson" id="formjson">
 
         <fieldset>
             <legend>Datos personales</legend>

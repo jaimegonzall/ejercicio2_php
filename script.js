@@ -1,9 +1,12 @@
-console.log("Conectadooofds!");
 console.log("Conectadooo!");
 
 // voy a validar, lanzar mensaje de error y cambiar estilo del input.
 // pero realmente, en la segunda capa de validación en HTML5, cogería
 // estilos por defecto del navegador al igual que los mensajitos de error.
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  document.getElementById('formjson').addEventListener('submit', manejadorValidacion)
+});
 
 function formValidate(){
     console.log("Activando validación");
@@ -19,10 +22,7 @@ function formValidate(){
     let dni = document.querySelector("#dni").value;
     let correo = document.querySelector("#correo").value;
     let localidad = document.querySelector("#localidad").value;
-/*    
-    let areaTexto = document.querySelector("#areaTexto").value;
-    
-    */
+
 
     if (name.value == "" || name.value == undefined){
       errorMsg.innerHTML += "Rellene el campo nombre </br>";
@@ -64,16 +64,29 @@ function formValidate(){
            console.log('Dni correcto');
          }
       }else{
-         alert('Dni erroneo, formato no válido');
+         errorMsg.innerHTML += "Indique su DNI. </br>";
          hasError = true;
        }
     }
     nif(dni);
 
+
+// NO ME SALE BIEN
+/*     if (correo == "" || correo == undefined){
+      errorMsg.innerHTML += "Rellene el campo email </br>";
+      hasError = true;
+    } else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(correo)){
+       console.log("La dirección de email " + correo + " es correcta.");
+    } else {
+      errorMsg.innerHTML +=  "La dirección de email es incorrecta. </br>";
+      hasError = true;
+    }; */
+
     if (correo == "" || correo == undefined){
       errorMsg.innerHTML += "Rellene el campo email </br>";
       hasError = true;
     }
+    correo = correo.toLowerCase();
 
     if(!document.querySelector('input[name="gender"]:checked')) {
       errorMsg.innerHTML += "Debe indicar un género </br>";
@@ -85,51 +98,17 @@ function formValidate(){
       hasError = true;
     };
 
+    console.log("¿Hay un error? " + hasError);
 
-
-/*     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(correo)){
-       alert("La dirección de email " + correo + " es correcta.");
-      } else {
-       alert("La dirección de email es incorrecta.");
-      }
-    } */
-
-
-
-
+    if (hasError != true){
+      document.formjson.submit(); // función SUBMIT para el envío definitivo del form
+      console.log("No hay errores, debes enviarte");
+    } else {
+      console.log("Error de validación");
+    }
 
 
     
 
+
 } /* fin validación */
-
-
-
-
-/* document.addEventListener("DOMContentLoaded", function(event) {
-    document.getElementById('formjson').addEventListener('submit', manejadorValidacion)
-  });
-  
-  function manejadorValidacion(e) {
-  e.preventDefault();
-  var msg = document.getElementById('msg');
-  msg.innerText = ''; //con esto eliminamos los anteriores mensajes de error
-  if(this.querySelector('[name=name]').value == '') {
-  console.log('El nombre está vacío');
-  msg.innerText = 'Debes escribir un nombre';
-  return;
-  }
-  if(! validateEmail(this.querySelector('[name=correo]').value)) 
-    { console.log('El email no es válido');
-    msg.innerText = 'Debes escribir un email válido';
-    return;
-   }
-   this.submit();
-  }
-  
-  function validateEmail(email) {
-    var re =
-   /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]
-  {1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-   } */
