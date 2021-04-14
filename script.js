@@ -5,11 +5,11 @@ console.log("Conectadooo!");
 // estilos por defecto del navegador al igual que los mensajitos de error.
 
 // REFACTORING
-// funciones independientes
+// Single Responsability
 
-document.addEventListener("DOMContentLoaded", function(event) {
+/* document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById('formjson').addEventListener('submit', formValidate)
-});
+}); */
 
 
 
@@ -27,12 +27,13 @@ function formValidate(){
   validateEmail();
   validateLocalidad();
   validateGender();
+  totalDate();
   
   console.log("Validando... ¿Hay un error? " + hasError);
   
   if (hasError == false){
-    document.formjson.submit(); // función SUBMIT para el envío definitivo del form
-    console.log("No hay errores, debes enviarte");
+    setTimeout(enviarForm, 3000);
+
   } else {
     console.log("Error de validación");
     let errorMsg = document.querySelector("#msg");
@@ -41,6 +42,10 @@ function formValidate(){
 
 } /* fin validación */
 
+function enviarForm(){
+  document.formjson.submit(); // función SUBMIT para el envío definitivo del form
+  console.log("No hay errores, debes enviarte");
+}
 
 function validateName(){
   let name = document.querySelector("#name");
@@ -111,3 +116,27 @@ function validateGender(){
     arrayErrores.push("género");
     hasError = true;
   }};
+
+  function totalDate(){
+    let starTime = new Date(document.querySelector("#startDate").value);
+    let endTime = new Date(document.querySelector("#endDate").value);
+
+    let startGet = starTime.getTime(); // lo paso a valor numérico (milisegundos)
+    let endGet = endTime.getTime();
+
+    if (startGet >= endGet){
+      arrayErrores.push("La fecha de inicio ha de ser anterior a la de fin");
+      hasError = true;
+    } else {
+      let milis = endGet - startGet;
+      let dias = (milis / 86400000) + 1; // lo paso a días
+      console.log("Son " + dias + " de vacaciones.");
+  
+      document.querySelector("#totaldate").value +=  dias ;
+    }
+
+
+
+
+/*     console.log(endDate.diff(startDay, 'days'), ' dias de diferencia');
+ */  }

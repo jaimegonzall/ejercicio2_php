@@ -42,7 +42,7 @@
         <fieldset>
             <legend>Otros datos</legend>
             <label for="areaTexto">Campo de texto:</label><br>
-            <textarea name="areaTexto" id="areaTexto" cols="70" rows="6">
+            <textarea name="areaTexto" id="areaTexto" cols="40" rows="6" maxlength="50">
             </textarea><br>
             <label for="localidad">Seleccione su localidad:</label><br>
             <select name="localidad" id="localidad" size="4">
@@ -63,6 +63,17 @@
               <option value="Cangas de Onís">Cangas de Onís</option>
             </select>
         </fieldset>
+        
+        <fieldset>
+            <legend>Vacaciones</legend>
+            <label for="startDate">Día de inicio</label>
+            <input type="date" id="startDate" name="startDate">
+            <label for="endDate">Fin</label>
+            <input type="date" id="endDate" name="endDate">
+            <label for="totalDate">Días en total:</label>
+            <input type="text" id="totaldate" name="totaldate" disabled>
+        </fieldset>
+
 
         <div id="msg"></div>
         <button id="btnEnviar" type="button" onclick="formValidate()">Enviar</button>
